@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+</head>
+<body>
+  <form name="myForm"  onsubmit="validate(this)">
+  	<label for="name">Name</label>
+    <p><input type="text" name="name" placeholder="Имя" id="name" minlength="3" required></p>
+      	<label for="email">Email</label>
+    <p><input type="text" name="email" placeholder="Email" id="email" minlength="5" required></p>
+      	<label for="phone">Phone</label>
+    <p><input type="text" name="phone" placeholder="Phone" id="phone" minlength="5" required></p>
+
+    <input type="submit" name="submit" value="Ready">
+  </form>
+  <script>
+      const myForm = document.forms.myForm;
+
+ function validate(myForm) {
+     let ruleName = /^[a-z ]{5,}$/i;
+     let rulePhone = /\+7?\d+/i;
+     let ruleEmail = /\S+@\S+\.\S+/;
+
+     if(ruleName.test(myForm.elements.name)
+     && ruleEmail.test(myForm.elements.email)
+     && rulePhone.test(myForm.elements.phone)){
+         console.log(`good job`);
+     } else {
+         console.log(`bad, you are stupped!`)
+     }
+ }
+  </script>
+</body>
+</html>
